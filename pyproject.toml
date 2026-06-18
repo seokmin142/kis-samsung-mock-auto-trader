@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kis-samsung-mock-auto-trader"
+version = "1.0.0"
+description = "Safe REST-only Samsung Electronics auto-trader for the KIS mock environment"
+requires-python = ">=3.11"
+dependencies = [
+  "requests>=2.32,<3",
+  "python-dotenv>=1.0,<2",
+  "tzdata>=2025.2",
+]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+include = ["samsung_trader*"]
