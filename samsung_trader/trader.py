@@ -102,8 +102,12 @@ class Trader:
                     return
 
                 if state.buy_order_id:
-                    self._monitor_current_pair(state, target_date)
-                    interval = self.settings.monitor_seconds
+                    completed = self._monitor_current_pair(state, target_date)
+                    interval = (
+                        self.settings.polling_seconds
+                        if completed
+                        else self.settings.monitor_seconds
+                    )
                 elif (
                     self.settings.max_order_pairs_per_day > 0
                     and state.order_pairs >= self.settings.max_order_pairs_per_day
@@ -283,7 +287,7 @@ class Trader:
         self.logger.info("mock sell accepted | order_id=%s price=%s", sell.order_id, sell.price)
         self.recorder.record("sell_order_accepted", **asdict(sell))
 
-    def _monitor_current_pair(self, state: DailyState, target_date: date) -> None:
+    def _monitor_current_pair(self, state: DailyState, target_date: date) -> bool:
         statuses = self.account.today_orders(target_date)
         by_id = {status.order_id: status for status in statuses}
         needs_balance = self._record_status_changes(statuses)
@@ -298,6 +302,9 @@ class Trader:
                 self._wait_seconds(self.settings.verification_delay_seconds)
                 statuses = self.account.today_orders(target_date)
                 self._record_status_changes(statuses)
+                by_id = {status.order_id: status for status in statuses}
+                buy_status = by_id.get(state.buy_order_id)
+                sell_status = by_id.get(state.sell_order_id)
                 balance = self.account.balance()
                 self._record_balance("holdings_after_sell_order", balance)
 
@@ -312,6 +319,8 @@ class Trader:
             state.planned_sell_price = 0
             state.holding_before = 0
             self.state_store.save(state)
+            return True
+        return False
 
     def _monitor_known_orders(self, state: DailyState, target_date: date) -> None:
         statuses = self.account.today_orders(target_date)

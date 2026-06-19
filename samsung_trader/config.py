@@ -71,7 +71,7 @@ class Settings:
     market_open: time = time(9, 10)
     market_close: time = time(15, 30)
     polling_seconds: int = 180
-    monitor_seconds: int = 600
+    monitor_seconds: int = 180
     verification_delay_seconds: int = 30
     price_offset_krw: int = 1_000
     price_tick_krw: int = 100
@@ -112,7 +112,7 @@ class Settings:
             app_key=app_key,
             app_secret=app_secret,
             polling_seconds=_positive_int("POLL_INTERVAL_SECONDS", 180),
-            monitor_seconds=_positive_int("MONITOR_INTERVAL_SECONDS", 600),
+            monitor_seconds=_positive_int("MONITOR_INTERVAL_SECONDS", 180),
             verification_delay_seconds=_positive_int(
                 "VERIFICATION_DELAY_SECONDS", 30
             ),
