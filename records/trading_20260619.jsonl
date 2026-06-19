@@ -1,0 +1,53 @@
+{"correction_seconds": -0.132, "event": "clock_synchronized", "timestamp_kst": "2026-06-19T10:37:17+09:00"}
+{"event": "token_refreshed", "expires_at_kst": "2026-06-20T10:37:17+09:00", "timestamp_kst": "2026-06-19T10:37:17+09:00"}
+{"event": "api_error", "message": "없는 서비스 코드 입니다", "message_code": "OPSQ0002", "path": "/uapi/domestic-stock/v1/quotations/chk-holiday", "timestamp_kst": "2026-06-19T10:37:17+09:00"}
+{"error": "KISApiError", "event": "safe_stop", "message": "OPSQ0002: 없는 서비스 코드 입니다", "timestamp_kst": "2026-06-19T10:37:17+09:00"}
+{"correction_seconds": -5.024, "event": "clock_synchronized", "timestamp_kst": "2026-06-19T10:38:55+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:38:55+09:00"}
+{"attempt": 1, "event": "api_transport_error", "method": "GET", "path": "/uapi/domestic-stock/v1/quotations/chk-holiday", "timestamp_kst": "2026-06-19T10:38:55+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:38:57+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:39:08+09:00"}
+{"error": "KISApiError", "event": "safe_stop", "message": "KIS HTTP 500 for /uapi/domestic-stock/v1/quotations/chk-holiday", "timestamp_kst": "2026-06-19T10:39:12+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:39:47+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:40:02+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:40:26+09:00"}
+{"correction_seconds": -0.406, "event": "clock_synchronized", "timestamp_kst": "2026-06-19T10:42:06+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:42:06+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:42:08+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:42:13+09:00"}
+{"event": "open_day_operator_override", "holiday_api_error": "KISApiError", "target_date": "2026-06-19", "timestamp_kst": "2026-06-19T10:42:17+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:42:17+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:42:21+09:00"}
+{"balance": {"available_cash": 10000000, "holding_quantity": 0, "orderable_quantity": 0, "symbol": "005930", "total_evaluation_amount": 10000000}, "current_price": 370000, "event": "preflight", "open_day": true, "target_date": "2026-06-19", "timestamp_kst": "2026-06-19T10:42:23+09:00"}
+{"correction_seconds": -0.403, "event": "clock_synchronized", "timestamp_kst": "2026-06-19T10:42:41+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:42:41+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:42:43+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:42:51+09:00"}
+{"event": "open_day_operator_override", "holiday_api_error": "KISApiError", "target_date": "2026-06-19", "timestamp_kst": "2026-06-19T10:42:59+09:00"}
+{"event": "trading_window_started", "mode": "execute-mock-orders", "timestamp_kst": "2026-06-19T10:42:59+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:42:59+09:00"}
+{"attempt": 1, "event": "api_transport_error", "method": "GET", "path": "/uapi/domestic-stock/v1/trading/inquire-daily-ccld", "timestamp_kst": "2026-06-19T10:43:09+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:43:11+09:00"}
+{"attempt": 2, "event": "api_transport_error", "method": "GET", "path": "/uapi/domestic-stock/v1/trading/inquire-daily-ccld", "timestamp_kst": "2026-06-19T10:43:21+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:43:25+09:00"}
+{"attempt": 3, "event": "api_transport_error", "method": "GET", "path": "/uapi/domestic-stock/v1/trading/inquire-daily-ccld", "timestamp_kst": "2026-06-19T10:43:35+09:00"}
+{"event": "trading_window_ended", "timestamp_kst": "2026-06-19T10:43:35+09:00"}
+{"error": "KISApiError", "event": "safe_stop", "message": "GET request failed after retries", "timestamp_kst": "2026-06-19T10:43:35+09:00"}
+{"correction_seconds": -0.723, "event": "clock_synchronized", "timestamp_kst": "2026-06-19T10:44:02+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:44:02+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:44:04+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:44:09+09:00"}
+{"event": "open_day_operator_override", "holiday_api_error": "KISApiError", "target_date": "2026-06-19", "timestamp_kst": "2026-06-19T10:44:09+09:00"}
+{"event": "trading_window_started", "mode": "execute-mock-orders", "timestamp_kst": "2026-06-19T10:44:09+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:44:09+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:44:09+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:44:10+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:44:12+09:00"}
+{"balance": {"available_cash": 10000000, "holding_quantity": 0, "orderable_quantity": 0, "symbol": "005930", "total_evaluation_amount": 10000000}, "current_price": 370000, "event": "holdings_before_order", "symbol": "005930", "timestamp_kst": "2026-06-19T10:44:17+09:00"}
+{"event": "buy_order_request", "price": 368000, "quantity": 1, "symbol": "005930", "timestamp_kst": "2026-06-19T10:44:17+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:44:17+09:00"}
+{"event": "buy_order_accepted", "order_id": "0000017797", "order_time": "104432", "price": 368000, "quantity": 1, "side": "buy", "symbol": "005930", "timestamp_kst": "2026-06-19T10:44:27+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:44:57+09:00"}
+{"event": "order_status", "filled_quantity": 0, "order_id": "0000017797", "order_price": 368000, "order_time": "104432", "ordered_quantity": 1, "remaining_quantity": 1, "side_name": "매수", "timestamp_kst": "2026-06-19T10:45:03+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:45:03+09:00"}
+{"balance": {"available_cash": 10000000, "holding_quantity": 0, "orderable_quantity": 0, "symbol": "005930", "total_evaluation_amount": 10000000}, "event": "holdings_after_order", "symbol": "005930", "timestamp_kst": "2026-06-19T10:45:08+09:00"}
