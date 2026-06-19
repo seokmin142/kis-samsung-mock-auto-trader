@@ -104,7 +104,10 @@ class Trader:
                 if state.buy_order_id:
                     self._monitor_current_pair(state, target_date)
                     interval = self.settings.monitor_seconds
-                elif state.order_pairs >= self.settings.max_order_pairs_per_day:
+                elif (
+                    self.settings.max_order_pairs_per_day > 0
+                    and state.order_pairs >= self.settings.max_order_pairs_per_day
+                ):
                     self.logger.info("daily order-pair limit reached; monitoring only")
                     self._monitor_known_orders(state, target_date)
                     interval = self.settings.monitor_seconds

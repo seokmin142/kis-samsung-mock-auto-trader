@@ -17,6 +17,7 @@ def aligned_price(reference_price: int, offset: int, tick: int, side: str) -> in
 
 class OrderService:
     ORDER_PATH = "/uapi/domestic-stock/v1/trading/order-cash"
+    CANCEL_PATH = "/uapi/domestic-stock/v1/trading/order-rvsecncl"
 
     def __init__(
         self,
@@ -62,3 +63,29 @@ class OrderService:
             order_id=order_id,
             order_time=order_time,
         )
+
+    def cancel_all(self, original_order_id: str) -> str:
+        if not original_order_id.isdigit():
+            raise ValueError("original_order_id must contain digits only")
+        payload = self.client.post(
+            self.CANCEL_PATH,
+            "VTTC0013U",
+            {
+                "CANO": self.account_number,
+                "ACNT_PRDT_CD": self.product_code,
+                "KRX_FWDG_ORD_ORGNO": "",
+                "ORGN_ODNO": original_order_id,
+                "ORD_DVSN": "00",
+                "RVSE_CNCL_DVSN_CD": "02",
+                "ORD_QTY": "0",
+                "ORD_UNPR": "0",
+                "QTY_ALL_ORD_YN": "Y",
+                "EXCG_ID_DVSN_CD": "KRX",
+                "CNDT_PRIC": "",
+            },
+        )
+        output = payload.get("output") or {}
+        cancel_order_id = str(output.get("ODNO") or output.get("odno") or "")
+        if not cancel_order_id:
+            raise KISApiError("cancel response did not contain an order number")
+        return cancel_order_id

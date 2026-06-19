@@ -24,7 +24,9 @@ def test_settings_loads_environment(monkeypatch: pytest.MonkeyPatch) -> None:
     assert settings.account_product_code == "01"
     assert settings.market_open == time(9, 10)
     assert settings.market_close == time(15, 30)
-    assert settings.price_offset_krw == 2_000
+    assert settings.price_offset_krw == 1_000
+    assert settings.order_quantity == 3
+    assert settings.max_order_pairs_per_day == 0
 
 
 def test_settings_rejects_missing_secrets(monkeypatch: pytest.MonkeyPatch) -> None:

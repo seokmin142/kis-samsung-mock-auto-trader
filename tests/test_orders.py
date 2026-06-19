@@ -29,3 +29,14 @@ def test_mock_buy_uses_official_demo_tr_id() -> None:
     assert client.calls[0][1] == "VTTC0012U"
     assert client.calls[0][2]["ORD_DVSN"] == "00"
     assert receipt.order_id == "12345"
+
+
+def test_mock_cancel_uses_official_demo_tr_id_and_all_quantity() -> None:
+    client = FakeOrderClient()
+    service = OrderService(client, "12345678", "01", "005930")  # type: ignore[arg-type]
+    cancel_order_id = service.cancel_all("12345")
+    assert client.calls[0][1] == "VTTC0013U"
+    assert client.calls[0][2]["ORGN_ODNO"] == "12345"
+    assert client.calls[0][2]["RVSE_CNCL_DVSN_CD"] == "02"
+    assert client.calls[0][2]["QTY_ALL_ORD_YN"] == "Y"
+    assert cancel_order_id == "12345"

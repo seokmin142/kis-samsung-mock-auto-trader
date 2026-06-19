@@ -28,6 +28,17 @@ def _positive_int(name: str, default: int) -> int:
     return value
 
 
+def _nonnegative_int(name: str, default: int) -> int:
+    raw = os.getenv(name, str(default))
+    try:
+        value = int(raw)
+    except ValueError as exc:
+        raise ConfigurationError(f"{name} must be an integer") from exc
+    if value < 0:
+        raise ConfigurationError(f"{name} must be zero or greater")
+    return value
+
+
 def _positive_float(name: str, default: float) -> float:
     raw = os.getenv(name, str(default))
     try:
@@ -62,10 +73,10 @@ class Settings:
     polling_seconds: int = 180
     monitor_seconds: int = 600
     verification_delay_seconds: int = 30
-    price_offset_krw: int = 2_000
+    price_offset_krw: int = 1_000
     price_tick_krw: int = 100
-    order_quantity: int = 1
-    max_order_pairs_per_day: int = 1
+    order_quantity: int = 3
+    max_order_pairs_per_day: int = 0
     request_min_interval_seconds: float = 0.6
     request_timeout_seconds: float = 20.0
     runtime_dir: Path = Path(".runtime")
@@ -105,11 +116,11 @@ class Settings:
             verification_delay_seconds=_positive_int(
                 "VERIFICATION_DELAY_SECONDS", 30
             ),
-            price_offset_krw=_positive_int("PRICE_OFFSET_KRW", 2_000),
+            price_offset_krw=_positive_int("PRICE_OFFSET_KRW", 1_000),
             price_tick_krw=_positive_int("PRICE_TICK_KRW", 100),
-            order_quantity=_positive_int("ORDER_QUANTITY", 1),
-            max_order_pairs_per_day=_positive_int(
-                "MAX_ORDER_PAIRS_PER_DAY", 1
+            order_quantity=_positive_int("ORDER_QUANTITY", 3),
+            max_order_pairs_per_day=_nonnegative_int(
+                "MAX_ORDER_PAIRS_PER_DAY", 0
             ),
             request_min_interval_seconds=_positive_float(
                 "REQUEST_MIN_INTERVAL_SECONDS", 0.6

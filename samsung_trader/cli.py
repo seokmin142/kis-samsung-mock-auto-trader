@@ -53,6 +53,11 @@ def build_parser() -> argparse.ArgumentParser:
         ),
     )
     parser.add_argument(
+        "--cancel-order",
+        metavar="ORDER_ID",
+        help="cancel all remaining quantity for one KIS mock order, then exit",
+    )
+    parser.add_argument(
         "--env-file",
         type=Path,
         default=Path(".env"),
@@ -109,7 +114,20 @@ def main(argv: list[str] | None = None) -> int:
     target_date = args.run_date or clock.now().date()
 
     try:
-        if args.preflight:
+        if args.cancel_order:
+            recorder.record("cancel_order_request", order_id=args.cancel_order)
+            cancel_order_id = orders.cancel_all(args.cancel_order)
+            logger.info(
+                "mock order cancellation accepted | original=%s cancel_order=%s",
+                args.cancel_order,
+                cancel_order_id,
+            )
+            recorder.record(
+                "cancel_order_accepted",
+                original_order_id=args.cancel_order,
+                cancel_order_id=cancel_order_id,
+            )
+        elif args.preflight:
             trader.preflight(target_date, args.confirmed_open_day)
         else:
             trader.run(
