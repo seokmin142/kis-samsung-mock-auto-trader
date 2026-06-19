@@ -51,3 +51,49 @@
 {"event": "order_status", "filled_quantity": 0, "order_id": "0000017797", "order_price": 368000, "order_time": "104432", "ordered_quantity": 1, "remaining_quantity": 1, "side_name": "매수", "timestamp_kst": "2026-06-19T10:45:03+09:00"}
 {"event": "token_reused", "timestamp_kst": "2026-06-19T10:45:03+09:00"}
 {"balance": {"available_cash": 10000000, "holding_quantity": 0, "orderable_quantity": 0, "symbol": "005930", "total_evaluation_amount": 10000000}, "event": "holdings_after_order", "symbol": "005930", "timestamp_kst": "2026-06-19T10:45:08+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:56:42+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:57:04+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:57:08+09:00"}
+{"event": "transition_sell_order_request", "price": 368500, "quantity": 1, "symbol": "005930", "timestamp_kst": "2026-06-19T10:57:51+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:57:51+09:00"}
+{"event": "transition_sell_order_accepted", "order_id": "0000019023", "order_time": "105751", "price": 368500, "quantity": 1, "side": "sell", "symbol": "005930", "timestamp_kst": "2026-06-19T10:57:51+09:00"}
+{"correction_seconds": -0.366, "event": "clock_synchronized", "timestamp_kst": "2026-06-19T10:58:44+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:58:44+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:58:46+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:58:53+09:00"}
+{"event": "open_day_operator_override", "holiday_api_error": "KISApiError", "target_date": "2026-06-19", "timestamp_kst": "2026-06-19T10:58:56+09:00"}
+{"event": "trading_window_started", "mode": "execute-mock-orders", "timestamp_kst": "2026-06-19T10:58:56+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:58:56+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:58:57+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:58:59+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:58:59+09:00"}
+{"balance": {"available_cash": 10000000, "holding_quantity": 0, "orderable_quantity": 0, "symbol": "005930", "total_evaluation_amount": 9999664}, "current_price": 368000, "event": "holdings_before_order", "symbol": "005930", "timestamp_kst": "2026-06-19T10:59:01+09:00"}
+{"event": "buy_order_request", "price": 367000, "quantity": 3, "symbol": "005930", "timestamp_kst": "2026-06-19T10:59:01+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:59:01+09:00"}
+{"event": "buy_order_accepted", "order_id": "0000019145", "order_time": "105903", "price": 367000, "quantity": 3, "side": "buy", "symbol": "005930", "timestamp_kst": "2026-06-19T10:59:03+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:59:33+09:00"}
+{"event": "order_status", "filled_quantity": 3, "order_id": "0000019145", "order_price": 367000, "order_time": "105903", "ordered_quantity": 3, "remaining_quantity": 0, "side_name": "매수", "timestamp_kst": "2026-06-19T10:59:42+09:00"}
+{"event": "order_status", "filled_quantity": 1, "order_id": "0000019023", "order_price": 368500, "order_time": "105751", "ordered_quantity": 1, "remaining_quantity": 0, "side_name": "매도", "timestamp_kst": "2026-06-19T10:59:42+09:00"}
+{"event": "order_status", "filled_quantity": 1, "order_id": "0000017797", "order_price": 368000, "order_time": "104432", "ordered_quantity": 1, "remaining_quantity": 0, "side_name": "매수", "timestamp_kst": "2026-06-19T10:59:42+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:59:42+09:00"}
+{"balance": {"available_cash": 10000000, "holding_quantity": 3, "orderable_quantity": 3, "symbol": "005930", "total_evaluation_amount": 9999514}, "event": "holdings_after_buy", "symbol": "005930", "timestamp_kst": "2026-06-19T10:59:51+09:00"}
+{"event": "sell_order_request", "price": 369000, "quantity": 3, "symbol": "005930", "timestamp_kst": "2026-06-19T10:59:51+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T10:59:51+09:00"}
+{"event": "sell_order_accepted", "order_id": "0000019208", "order_time": "105952", "price": 369000, "quantity": 3, "side": "sell", "symbol": "005930", "timestamp_kst": "2026-06-19T10:59:52+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T11:00:22+09:00"}
+{"event": "order_status", "filled_quantity": 0, "order_id": "0000019208", "order_price": 369000, "order_time": "105952", "ordered_quantity": 3, "remaining_quantity": 3, "side_name": "매도", "timestamp_kst": "2026-06-19T11:00:24+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T11:00:24+09:00"}
+{"balance": {"available_cash": 10000000, "holding_quantity": 3, "orderable_quantity": 0, "symbol": "005930", "total_evaluation_amount": 10001764}, "event": "holdings_after_sell_order", "symbol": "005930", "timestamp_kst": "2026-06-19T11:00:31+09:00"}
+{"correction_seconds": -6.818, "event": "clock_synchronized", "timestamp_kst": "2026-06-19T11:01:26+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T11:01:26+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T11:01:40+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T11:01:49+09:00"}
+{"event": "open_day_operator_override", "holiday_api_error": "KISApiError", "target_date": "2026-06-19", "timestamp_kst": "2026-06-19T11:01:51+09:00"}
+{"event": "trading_window_started", "mode": "execute-mock-orders", "timestamp_kst": "2026-06-19T11:01:51+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T11:01:51+09:00"}
+{"event": "order_status", "filled_quantity": 0, "order_id": "0000019208", "order_price": 369000, "order_time": "105952", "ordered_quantity": 3, "remaining_quantity": 3, "side_name": "매도", "timestamp_kst": "2026-06-19T11:01:59+09:00"}
+{"event": "order_status", "filled_quantity": 3, "order_id": "0000019145", "order_price": 367000, "order_time": "105903", "ordered_quantity": 3, "remaining_quantity": 0, "side_name": "매수", "timestamp_kst": "2026-06-19T11:01:59+09:00"}
+{"event": "order_status", "filled_quantity": 1, "order_id": "0000019023", "order_price": 368500, "order_time": "105751", "ordered_quantity": 1, "remaining_quantity": 0, "side_name": "매도", "timestamp_kst": "2026-06-19T11:01:59+09:00"}
+{"event": "order_status", "filled_quantity": 1, "order_id": "0000017797", "order_price": 368000, "order_time": "104432", "ordered_quantity": 1, "remaining_quantity": 0, "side_name": "매수", "timestamp_kst": "2026-06-19T11:01:59+09:00"}
+{"event": "token_reused", "timestamp_kst": "2026-06-19T11:01:59+09:00"}
+{"balance": {"available_cash": 10000000, "holding_quantity": 3, "orderable_quantity": 0, "symbol": "005930", "total_evaluation_amount": 10004014}, "event": "holdings_after_order", "symbol": "005930", "timestamp_kst": "2026-06-19T11:02:14+09:00"}
