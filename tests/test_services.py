@@ -24,7 +24,7 @@ def test_market_price_and_holiday_parsing() -> None:
     service = MarketDataService(client, "005930")  # type: ignore[arg-type]
     assert service.current_price() == 70_000
     assert service.is_open_day(date(2026, 6, 19)) is True
-    assert client.calls[1][1] == "VTCA0903R"
+    assert client.calls[1][1] == "CTCA0903R"
 
 
 def test_balance_and_order_status_parsing() -> None:

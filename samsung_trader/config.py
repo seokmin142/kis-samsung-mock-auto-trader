@@ -67,7 +67,7 @@ class Settings:
     order_quantity: int = 1
     max_order_pairs_per_day: int = 1
     request_min_interval_seconds: float = 0.6
-    request_timeout_seconds: float = 10.0
+    request_timeout_seconds: float = 20.0
     runtime_dir: Path = Path(".runtime")
     records_dir: Path = Path("records")
     logs_dir: Path = Path("logs")

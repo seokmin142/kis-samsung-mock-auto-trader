@@ -34,7 +34,7 @@ class MarketDataService:
     def is_open_day(self, day: date) -> bool:
         payload = self.client.get(
             self.HOLIDAY_PATH,
-            "VTCA0903R",
+            "CTCA0903R",
             {"BASS_DT": day.strftime("%Y%m%d"), "CTX_AREA_FK": "", "CTX_AREA_NK": ""},
         )
         rows = payload.get("output") or []

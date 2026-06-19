@@ -45,6 +45,14 @@ def build_parser() -> argparse.ArgumentParser:
         help="test clock, authentication, holiday, price, and balance without ordering",
     )
     parser.add_argument(
+        "--confirmed-open-day",
+        action="store_true",
+        help=(
+            "allow today's weekday only when the KIS holiday API is unavailable "
+            "and an operator independently confirmed the exchange calendar"
+        ),
+    )
+    parser.add_argument(
         "--env-file",
         type=Path,
         default=Path(".env"),
@@ -102,9 +110,14 @@ def main(argv: list[str] | None = None) -> int:
 
     try:
         if args.preflight:
-            trader.preflight(target_date)
+            trader.preflight(target_date, args.confirmed_open_day)
         else:
-            trader.run(target_date, args.wait_for_open, args.execute)
+            trader.run(
+                target_date,
+                args.wait_for_open,
+                args.execute,
+                args.confirmed_open_day,
+            )
         return 0
     except KeyboardInterrupt:
         logger.info("stopped by user")

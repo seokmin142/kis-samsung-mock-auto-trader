@@ -39,8 +39,8 @@ class Trader:
         self.stop_event = stop_event
         self._last_status: dict[str, tuple[int, int]] = {}
 
-    def preflight(self, target_date: date) -> None:
-        open_day = self.market.is_open_day(target_date)
+    def preflight(self, target_date: date, confirmed_open_day: bool = False) -> None:
+        open_day = self._open_day_or_override(target_date, confirmed_open_day)
         price = self.market.current_price()
         balance = self.account.balance()
         self.logger.info(
@@ -59,7 +59,13 @@ class Trader:
             balance=asdict(balance),
         )
 
-    def run(self, target_date: date, wait_for_open: bool, execute: bool) -> None:
+    def run(
+        self,
+        target_date: date,
+        wait_for_open: bool,
+        execute: bool,
+        confirmed_open_day: bool = False,
+    ) -> None:
         open_at = self.clock.at(target_date, self.settings.market_open)
         close_at = self.clock.at(target_date, self.settings.market_close)
         now = self.clock.now()
@@ -78,7 +84,7 @@ class Trader:
             if not self.clock.sleep_until(open_at, self.stop_event, self.logger):
                 return
 
-        if not self.market.is_open_day(target_date):
+        if not self._open_day_or_override(target_date, confirmed_open_day):
             self.logger.warning("KIS holiday API reports a closed market day")
             self.recorder.record("market_closed_day", target_date=target_date.isoformat())
             return
@@ -147,6 +153,31 @@ class Trader:
             quantity=self.settings.order_quantity,
             conditional_sell=balance.orderable_quantity < self.settings.order_quantity,
         )
+
+    def _open_day_or_override(
+        self, target_date: date, confirmed_open_day: bool
+    ) -> bool:
+        try:
+            return self.market.is_open_day(target_date)
+        except KISApiError as exc:
+            today = self.clock.now().date()
+            if (
+                not confirmed_open_day
+                or target_date != today
+                or target_date.weekday() >= 5
+            ):
+                raise
+            self.logger.warning(
+                "KIS holiday API unavailable; using independently confirmed "
+                "open-day override for %s",
+                target_date,
+            )
+            self.recorder.record(
+                "open_day_operator_override",
+                target_date=target_date.isoformat(),
+                holiday_api_error=type(exc).__name__,
+            )
+            return True
 
     def _place_pair(self, state: DailyState, target_date: date) -> bool:
         existing = self.account.today_orders(target_date)

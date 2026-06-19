@@ -54,7 +54,8 @@ class KISClient:
         params: dict[str, str] | None = None,
         body: dict[str, str] | None = None,
     ) -> dict[str, Any]:
-        if not tr_id.startswith(("V", "FHKST")):
+        shared_read_tr_ids = {"FHKST01010100", "CTCA0903R"}
+        if not tr_id.startswith("V") and tr_id not in shared_read_tr_ids:
             raise KISApiError(f"unsafe non-mock TR ID rejected: {tr_id}")
 
         attempts = 3 if method == "GET" else 1

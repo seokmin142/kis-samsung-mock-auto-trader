@@ -45,7 +45,7 @@ class KSTClock:
         self._offset = server_utc - midpoint
         self._last_sync_monotonic = time_module.monotonic()
 
-    def sync(self, session: requests.Session, base_url: str, timeout: float = 5.0) -> float:
+    def sync(self, session: requests.Session, base_url: str, timeout: float = 15.0) -> float:
         sent = datetime.now(timezone.utc)
         response = session.head(base_url, timeout=timeout)
         received = datetime.now(timezone.utc)
